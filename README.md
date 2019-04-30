@@ -3,15 +3,15 @@ Convolutional Autoencoder-Based Multispectral Image Fusion
 
 Overview
 -----
-This repository contains code necessary to run our deep learning-based pansharpening method for fusion of panchromatic
-and multispectral images in remote sensing applications. See our paper for details on the algorithm.
+This repository contains the codes for the developed deep learning-based pansharpening method to fuse panchromatic
+and multispectral images for remote sensing applications. Details of the method are described in the paper listed below.
 
 
 Usage: Pansharpening
 -----
 
-Convolutional Autoencoder-Based Multispectral Image Fusion is a new deep learning-based method for multispectral image fusion based on the convolutional autoencoder architecture. For more information, see the following paper:
-> A. Azarang, H. E. Manoochehri, N. Kehtarnavaz, Convolutional Autoencoder-Based Multispectral Image Fusion, IEEE Access. [\[PDF\]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8668404)
+Convolutional Autoencoder-Based Multispectral Image Fusion involves a deep learning-based solution for multispectral image fusion.
+> A. Azarang, H. Manoochehri, and N. Kehtarnavaz, "Convolutional Autoencoder-Based Multispectral Image Fusion," IEEE Access, vol. 7, pp. 35673-35683, March 2019. [\[PDF\]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8668404)
 
 
 <p align="center">
@@ -23,15 +23,15 @@ How to run
 ----------
 
 
-First, you need to use Data_Generation.m to prepare your data to be used in our pansharpening framework. We only use 4-Bands MultiSpectral (MS) data for our study. (B, G, R, NIR bands) 
+First, need to use Data_Generation.m to prepare data for the developed pansharpening framework. Here, 4 bands of MultiSpectral (MS) data are considered (B, G, R, NIR bands). 
 
     Add path of your data
  
-The path should contain the MS and PANchromatic (PAN) data. Also, It can be .mat files (MAT-files).
+The path needs to contain the MS and PANchromatic (PAN) data; can be .mat files (MAT-files).
 
     Importing the MS and PAN data
 
-After running the Data_Generation.m, 3 files are saved to the directory: 
+After running Data_Generation.m, 3 files are saved to the directory: 
 
     Input.m   // it is used to serve as the input of the netowrk
     Target.m  // it is used to serve as the target of the network
@@ -39,19 +39,19 @@ After running the Data_Generation.m, 3 files are saved to the directory:
 
 Then, run Auto_Conv.ipynb to train the Convolutional AutoEncoder (CAE) network. 
     
-After training the CAE network, the output of the netowrk in response to the LRMS patches is saved as .mat file (MAT-file) to be processed into the fusion framework.
+After training the CAE network, the output of the netowrk in response to the LRMS patches is saved as a .mat file (MAT-file) to be processed into the fusion framework.
 
-To finalize the fusion process and get the result, run the Fusion.m file in matlab. This MATLAB file will import the estimated high resolution MS patches. The tiling_av.m file will reconstruct the estimated high resoultion MS band using the output of the CAE network. 
+To finalize the fusion process and produce the outcome, run the Fusion.m file in MATLAB. This MATLAB file will import the estimated high resolution MS patches. The tiling_av.m file will reconstruct the estimated high resoultion MS band using the output of the CAE network. 
 
-To do the objective assesmet, do the following: 
-    Add objecticve evaluation path to your current directory
-    follow the sturcture of using metrics mentioned in the Fusion.m
-    Create a table in Command window and see the results.
+For objective evaluation: 
+    Add the objecticve evaluation path to current directory
+    Follow the sturcture of using the measures mentioned in Fusion.m
+    Create a table in Command window and see the outcome
 
 Requirements
 ------------
 
-The code is written in Python 3 and uses Keras and also Matlab. Recent versions of Tensorflow, sklearn, networkx, numpy, and scipy are required. All the required packages can be installed using the following command:
+The code is written in Python 3 and uses Keras as well as MATLAB. The latest versions (at the time of this writing) of Tensorflow, Sklearn, Networkx, Numpy, and Scipy are used. These packages can be installed using the following command:
     
     $ pip install -r requirements.txt
 
@@ -60,9 +60,9 @@ License and Citation
 ---------
 The codes are licensed under MIT license. 
 
-For any utilization of the code content of this repository, the following paper needs to be cited by the user: 
+For any utilization of the code content of this repository, the following paper needs to get cited by the user: 
 
-> A. Azarang, H.E. Manoochehri, and N. Kehtarnavaz, “Convolutional Autoencoder-Based Multispectral Image Fusion,” IEEE Access, vol. 7, pp.35673-35683, Mar. 2019.
+> A. Azarang, H.Manoochehri, and N. Kehtarnavaz, “Convolutional Autoencoder-Based Multispectral Image Fusion,” IEEE Access, vol. 7, pp. 35673-35683, March 2019.
 
-Thanks!
+
 
